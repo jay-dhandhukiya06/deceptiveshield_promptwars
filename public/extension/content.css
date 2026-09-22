@@ -1,0 +1,214 @@
+/**
+ * DeceptiveShield - Content Script Stylesheet
+ * Scoped under .deceptiveshield-* to prevent pollution of host web pages.
+ */
+
+/* ==========================================================================
+   1. Checkbox Flagging & Add-on Warning Badge
+   ========================================================================== */
+
+/* Red warning border and focus ring on deceptive pre-checked checkboxes */
+input[type="checkbox"].deceptiveshield-flagged-checkbox {
+  outline: 2.5px solid #dc2626 !important;
+  outline-offset: 2px !important;
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.25) !important;
+  transition: all 0.2s ease-in-out !important;
+  cursor: pointer !important;
+}
+
+/* Injected alert badge for pre-selected add-ons */
+.deceptiveshield-addon-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin-left: 8px !important;
+  margin-top: 4px !important;
+  margin-bottom: 4px !important;
+  padding: 3px 8px !important;
+  background-color: #fef2f2 !important;
+  border: 1px solid #f87171 !important;
+  border-left: 3px solid #dc2626 !important;
+  border-radius: 4px !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #991b1b !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.01em !important;
+  box-shadow: 0 1px 3px rgba(220, 38, 38, 0.1) !important;
+  vertical-align: middle !important;
+  z-index: 10 !important;
+  animation: deceptiveshieldFadeIn 0.25s ease-out !important;
+  user-select: none !important;
+}
+
+.deceptiveshield-addon-badge:hover {
+  background-color: #fee2e2 !important;
+}
+
+/* ==========================================================================
+   2. Deceptive Recurring Fee Highlighting
+   ========================================================================== */
+
+.deceptiveshield-flagged-recurring {
+  position: relative !important;
+  background-color: rgba(254, 242, 242, 0.85) !important;
+  border: 1px dashed #ef4444 !important;
+  border-radius: 4px !important;
+  padding: 4px 8px !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.deceptiveshield-recurring-tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  color: #b91c1c !important;
+  background: #fee2e2 !important;
+  padding: 2px 6px !important;
+  border-radius: 3px !important;
+  margin-right: 6px !important;
+  vertical-align: middle !important;
+}
+
+/* ==========================================================================
+   3. Artificial Urgency & Scarcity Highlighting
+   ========================================================================== */
+
+.deceptiveshield-flagged-urgency {
+  position: relative !important;
+  border: 1.5px solid #f97316 !important;
+  background-color: rgba(255, 247, 237, 0.85) !important;
+  border-radius: 6px !important;
+  padding: 4px 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.deceptiveshield-urgency-tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  color: #c2410c !important;
+  background: #ffedd5 !important;
+  padding: 2px 6px !important;
+  border-radius: 3px !important;
+  margin-right: 6px !important;
+  vertical-align: middle !important;
+}
+
+/* ==========================================================================
+   4. Floating Action Button (FAB) - Bottom Right Corner
+   ========================================================================== */
+
+#deceptiveshield-fab-root {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  z-index: 2147483647 !important; /* Maximum z-index to stay above host modals */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+.deceptiveshield-fab-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 10px 18px !important;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.4), 0 8px 10px -6px rgba(15, 23, 42, 0.3) !important;
+  cursor: pointer !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+  text-decoration: none !important;
+  outline: none !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  user-select: none !important;
+}
+
+.deceptiveshield-fab-btn:hover {
+  transform: translateY(-2px) !important;
+  background: linear-gradient(135deg, #0f172a 0%, #020617 100%) !important;
+  box-shadow: 0 14px 28px -4px rgba(15, 23, 42, 0.5), 0 10px 12px -6px rgba(15, 23, 42, 0.4) !important;
+}
+
+.deceptiveshield-fab-btn:active {
+  transform: translateY(0) !important;
+}
+
+.deceptiveshield-fab-icon {
+  font-size: 16px !important;
+  line-height: 1 !important;
+}
+
+.deceptiveshield-fab-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 20px !important;
+  height: 20px !important;
+  padding: 0 6px !important;
+  background-color: #ef4444 !important;
+  color: #ffffff !important;
+  border-radius: 9999px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  border: 1.5px solid #ffffff !important;
+  animation: deceptiveshieldPulse 2s infinite !important;
+}
+
+/* Tooltip overlay on hover */
+.deceptiveshield-fab-tooltip {
+  position: absolute !important;
+  bottom: calc(100% + 10px) !important;
+  right: 0 !important;
+  width: 260px !important;
+  background: #0f172a !important;
+  color: #f8fafc !important;
+  padding: 10px 12px !important;
+  border-radius: 8px !important;
+  font-size: 11.5px !important;
+  line-height: 1.4 !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  transform: translateY(6px) !important;
+  transition: all 0.2s ease !important;
+}
+
+#deceptiveshield-fab-root:hover .deceptiveshield-fab-tooltip {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Animations */
+@keyframes deceptiveshieldFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes deceptiveshieldPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}

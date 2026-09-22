@@ -1,0 +1,6 @@
+{
+  "name": "DeceptiveShield",
+  "description": "Manifest V3 Chrome Extension and Community Reporting Portal for detecting, flagging, and crowdsourcing deceptive dark patterns and checkout traps.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

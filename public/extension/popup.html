@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeceptiveShield</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="logo-icon">🛡️</div>
+        <div class="brand-text">
+          <h1 class="brand-title">DeceptiveShield</h1>
+          <p class="brand-subtitle">Dark Pattern & Checkout Defense</p>
+        </div>
+      </div>
+      <div class="status-pill" id="protection-status">
+        <span class="status-dot"></span>
+        <span class="status-label">ACTIVE</span>
+      </div>
+    </header>
+
+    <!-- Summary Hero Card -->
+    <section class="hero-card">
+      <div class="hero-metric">
+        <span class="metric-number" id="total-issues">0</span>
+        <span class="metric-label">Traps Detected on Tab</span>
+      </div>
+      <button type="button" class="btn-scan" id="btn-scan">
+        <span class="scan-icon" id="scan-icon">🔄</span>
+        <span id="scan-btn-text">Run Manual Scan</span>
+      </button>
+    </section>
+
+    <!-- Categories Grid -->
+    <section class="categories-grid">
+      <div class="category-card" id="card-addons">
+        <div class="category-header">
+          <span class="category-icon">☑️</span>
+          <span class="category-count" id="count-addons">0</span>
+        </div>
+        <div class="category-name">Pre-checked Add-ons</div>
+        <div class="category-sub">Sneak-into-basket</div>
+      </div>
+
+      <div class="category-card" id="card-recurring">
+        <div class="category-header">
+          <span class="category-icon">🔄</span>
+          <span class="category-count" id="count-recurring">0</span>
+        </div>
+        <div class="category-name">Recurring Fees</div>
+        <div class="category-sub">Hidden auto-debits</div>
+      </div>
+
+      <div class="category-card" id="card-urgency">
+        <div class="category-header">
+          <span class="category-icon">⏳</span>
+          <span class="category-count" id="count-urgency">0</span>
+        </div>
+        <div class="category-name">Urgency Triggers</div>
+        <div class="category-sub">Timers & scarcity copy</div>
+      </div>
+    </section>
+
+    <!-- Issues List Section -->
+    <section class="issues-section">
+      <div class="section-title-row">
+        <h2 class="section-title">Flagged Elements</h2>
+        <span class="badge-tab-url" id="tab-domain" title="Active URL">active-tab</span>
+      </div>
+
+      <div class="issues-list" id="issues-list">
+        <!-- Injected via popup.js -->
+        <div class="empty-state" id="empty-state">
+          <span class="empty-icon">✅</span>
+          <p class="empty-text">No deceptive traps flagged on this tab yet.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Action -->
+    <footer class="footer">
+      <button type="button" class="btn-report-all" id="btn-report-all">
+        📢 Submit Incident Report
+      </button>
+      <div class="version-tag">Manifest V3 • DeceptiveShield Engine v1.0</div>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
